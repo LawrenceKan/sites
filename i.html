@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <title>Document</title>
+
+    <style>
+        #wrapper div {
+            display:none;
+        }
+        #wrapper a.active {
+            color: black;
+            cursor: default;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        #wrapper div.active {
+            display:block;
+            width:100%;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrapper">
+    <a href="#" id="tab1" class="active">Вкладка 1</a>
+    <a href="#" id="tab2">Вкладка 2</a>
+    <a href="#" id="tab3">Вкладка 3</a>
+    <div id="con_tab1" class="active">Содержимое 1</div>
+    <div id="con_tab2">Содержимое 2</div>
+    <div id="con_tab3">Содержимое 3</div>
+</div>​
+
+
+<script type="text/javascript" >
+    $('#wrapper a').click(function() {
+        var click_id=$(this).attr('id');
+        if (click_id != $('#wrapper a.active').attr('id') ) {
+            $('#wrapper a').removeClass('active');
+            $(this).addClass('active');
+            $('#wrapper div').removeClass('active');
+            $('#con_' + click_id).addClass('active');
+        }
+    });
+</script>
+
+        </body>
+</html>
+
